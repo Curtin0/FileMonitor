@@ -35,17 +35,17 @@
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Started = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.originPathDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.backupPathDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pathItemBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.DeleteItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.Exit = new System.Windows.Forms.ToolStripMenuItem();
-            this.originPathDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.backupPathDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pathItemBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pathItemBindingSource1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pathItemBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // checkBox1
@@ -106,6 +106,28 @@
             this.Started.TrueValue = "true";
             this.Started.Width = 50;
             // 
+            // originPathDataGridViewTextBoxColumn
+            // 
+            this.originPathDataGridViewTextBoxColumn.DataPropertyName = "OriginPath";
+            this.originPathDataGridViewTextBoxColumn.FillWeight = 220F;
+            this.originPathDataGridViewTextBoxColumn.HeaderText = "原路径";
+            this.originPathDataGridViewTextBoxColumn.Name = "originPathDataGridViewTextBoxColumn";
+            this.originPathDataGridViewTextBoxColumn.ReadOnly = true;
+            this.originPathDataGridViewTextBoxColumn.Width = 500;
+            // 
+            // backupPathDataGridViewTextBoxColumn
+            // 
+            this.backupPathDataGridViewTextBoxColumn.DataPropertyName = "BackupPath";
+            this.backupPathDataGridViewTextBoxColumn.FillWeight = 220F;
+            this.backupPathDataGridViewTextBoxColumn.HeaderText = "备份路径";
+            this.backupPathDataGridViewTextBoxColumn.Name = "backupPathDataGridViewTextBoxColumn";
+            this.backupPathDataGridViewTextBoxColumn.ReadOnly = true;
+            this.backupPathDataGridViewTextBoxColumn.Width = 260;
+            // 
+            // pathItemBindingSource1
+            // 
+            this.pathItemBindingSource1.DataSource = typeof(FileMonitor.PathItem);
+            // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -134,28 +156,6 @@
             this.Exit.Text = "退出";
             this.Exit.Click += new System.EventHandler(this.Exit_Click);
             // 
-            // originPathDataGridViewTextBoxColumn
-            // 
-            this.originPathDataGridViewTextBoxColumn.DataPropertyName = "OriginPath";
-            this.originPathDataGridViewTextBoxColumn.FillWeight = 220F;
-            this.originPathDataGridViewTextBoxColumn.HeaderText = "原路径";
-            this.originPathDataGridViewTextBoxColumn.Name = "originPathDataGridViewTextBoxColumn";
-            this.originPathDataGridViewTextBoxColumn.ReadOnly = true;
-            this.originPathDataGridViewTextBoxColumn.Width = 500;
-            // 
-            // backupPathDataGridViewTextBoxColumn
-            // 
-            this.backupPathDataGridViewTextBoxColumn.DataPropertyName = "BackupPath";
-            this.backupPathDataGridViewTextBoxColumn.FillWeight = 220F;
-            this.backupPathDataGridViewTextBoxColumn.HeaderText = "备份路径";
-            this.backupPathDataGridViewTextBoxColumn.Name = "backupPathDataGridViewTextBoxColumn";
-            this.backupPathDataGridViewTextBoxColumn.ReadOnly = true;
-            this.backupPathDataGridViewTextBoxColumn.Width = 260;
-            // 
-            // pathItemBindingSource1
-            // 
-            this.pathItemBindingSource1.DataSource = typeof(FileMonitor.PathItem);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -167,13 +167,13 @@
             this.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
-            this.Text = "存档备份器 11404";
+            this.Text = "存档备份器";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.SizeChanged += new System.EventHandler(this.MainForm_SizeChanged);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pathItemBindingSource1)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             this.contextMenuStrip2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pathItemBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
