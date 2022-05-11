@@ -35,23 +35,24 @@
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Started = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.originPathDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.backupPathDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pathItemBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.DeleteItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.Exit = new System.Windows.Forms.ToolStripMenuItem();
+            this.originPathDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.backupPathDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pathItemBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pathItemBindingSource1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pathItemBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(348, 391);
+            this.checkBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.checkBox1.Location = new System.Drawing.Point(710, 6);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(96, 16);
             this.checkBox1.TabIndex = 2;
@@ -68,20 +69,27 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Started,
             this.originPathDataGridViewTextBoxColumn,
             this.backupPathDataGridViewTextBoxColumn});
+            this.dataGridView1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dataGridView1.DataSource = this.pathItemBindingSource1;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Location = new System.Drawing.Point(2, 28);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.RowHeadersWidth = 40;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(494, 385);
+            this.dataGridView1.Size = new System.Drawing.Size(811, 413);
             this.dataGridView1.TabIndex = 4;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
@@ -98,39 +106,17 @@
             this.Started.TrueValue = "true";
             this.Started.Width = 50;
             // 
-            // originPathDataGridViewTextBoxColumn
-            // 
-            this.originPathDataGridViewTextBoxColumn.DataPropertyName = "OriginPath";
-            this.originPathDataGridViewTextBoxColumn.FillWeight = 220F;
-            this.originPathDataGridViewTextBoxColumn.HeaderText = "原路径";
-            this.originPathDataGridViewTextBoxColumn.Name = "originPathDataGridViewTextBoxColumn";
-            this.originPathDataGridViewTextBoxColumn.ReadOnly = true;
-            this.originPathDataGridViewTextBoxColumn.Width = 220;
-            // 
-            // backupPathDataGridViewTextBoxColumn
-            // 
-            this.backupPathDataGridViewTextBoxColumn.DataPropertyName = "BackupPath";
-            this.backupPathDataGridViewTextBoxColumn.FillWeight = 220F;
-            this.backupPathDataGridViewTextBoxColumn.HeaderText = "备份路径";
-            this.backupPathDataGridViewTextBoxColumn.Name = "backupPathDataGridViewTextBoxColumn";
-            this.backupPathDataGridViewTextBoxColumn.ReadOnly = true;
-            this.backupPathDataGridViewTextBoxColumn.Width = 220;
-            // 
-            // pathItemBindingSource1
-            // 
-            this.pathItemBindingSource1.DataSource = typeof(FileMonitor.PathItem);
-            // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.DeleteItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 48);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(125, 26);
             // 
             // DeleteItem
             // 
             this.DeleteItem.Name = "DeleteItem";
-            this.DeleteItem.Size = new System.Drawing.Size(180, 22);
+            this.DeleteItem.Size = new System.Drawing.Size(124, 22);
             this.DeleteItem.Text = "删除该项";
             this.DeleteItem.Click += new System.EventHandler(this.DeleteItem_Click);
             // 
@@ -144,26 +130,50 @@
             // Exit
             // 
             this.Exit.Name = "Exit";
-            this.Exit.Size = new System.Drawing.Size(180, 22);
+            this.Exit.Size = new System.Drawing.Size(100, 22);
             this.Exit.Text = "退出";
             this.Exit.Click += new System.EventHandler(this.Exit_Click);
+            // 
+            // originPathDataGridViewTextBoxColumn
+            // 
+            this.originPathDataGridViewTextBoxColumn.DataPropertyName = "OriginPath";
+            this.originPathDataGridViewTextBoxColumn.FillWeight = 220F;
+            this.originPathDataGridViewTextBoxColumn.HeaderText = "原路径";
+            this.originPathDataGridViewTextBoxColumn.Name = "originPathDataGridViewTextBoxColumn";
+            this.originPathDataGridViewTextBoxColumn.ReadOnly = true;
+            this.originPathDataGridViewTextBoxColumn.Width = 500;
+            // 
+            // backupPathDataGridViewTextBoxColumn
+            // 
+            this.backupPathDataGridViewTextBoxColumn.DataPropertyName = "BackupPath";
+            this.backupPathDataGridViewTextBoxColumn.FillWeight = 220F;
+            this.backupPathDataGridViewTextBoxColumn.HeaderText = "备份路径";
+            this.backupPathDataGridViewTextBoxColumn.Name = "backupPathDataGridViewTextBoxColumn";
+            this.backupPathDataGridViewTextBoxColumn.ReadOnly = true;
+            this.backupPathDataGridViewTextBoxColumn.Width = 260;
+            // 
+            // pathItemBindingSource1
+            // 
+            this.pathItemBindingSource1.DataSource = typeof(FileMonitor.PathItem);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(494, 410);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(818, 444);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.checkBox1);
+            this.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
-            this.Text = "游戏存档监视器";
+            this.Text = "存档备份器 11404";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.SizeChanged += new System.EventHandler(this.MainForm_SizeChanged);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pathItemBindingSource1)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             this.contextMenuStrip2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pathItemBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

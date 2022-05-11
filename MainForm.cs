@@ -13,9 +13,10 @@ namespace FileMonitor
         public MainForm()
         {
             InitializeComponent();
-            Icon = notifyIcon1.Icon = Resource.icon;
+            StartPosition = FormStartPosition.CenterScreen;
+            //Icon = notifyIcon1.Icon = Resource.icon;
             notifyIcon1.Visible = true;
-            Program.FormsContainer.Add(this);
+            Program.FormsContainer.Add(this);            
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -24,8 +25,8 @@ namespace FileMonitor
             {
                 Top = MainProcess.Config.WindowPos[Name].Top < 0 ? 100 : MainProcess.Config.WindowPos[Name].Top;
                 Left = MainProcess.Config.WindowPos[Name].Left < 0 ? 100 : MainProcess.Config.WindowPos[Name].Left;
-                Height = MainProcess.Config.WindowPos[Name].Height;
-                Width = MainProcess.Config.WindowPos[Name].Width;
+                //Height = MainProcess.Config.WindowPos[Name].Height;
+                //Width = MainProcess.Config.WindowPos[Name].Width;
             }
 
             checkBox1.Checked = MainProcess.Config.AutoRun;
@@ -81,36 +82,36 @@ namespace FileMonitor
             }
         }
 
-        private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Right)//显示右键菜单
-            {
-                dataGridView1.ClearSelection();
-                dataGridView1.Rows[e.RowIndex].Selected = true;
-                dataGridView1.CurrentCell = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex];
-                contextMenuStrip1.Show(MousePosition.X, MousePosition.Y);
-            }
-            else if (e.Button == MouseButtons.Left)
-            {
-                if (e.ColumnIndex != 0)
+        private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e) {
+            try {
+                if (e.Button == MouseButtons.Right)//显示右键菜单
                 {
-                    if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
-                    {
-                        if (e.ColumnIndex == 1)
-                        {
-                            var datas = (List<PathItem>)dataGridView1.DataSource;
-                            if (datas.Exists(t => datas.IndexOf(t) != e.RowIndex && t.OriginPath == folderBrowserDialog1.SelectedPath))
-                            {
-                                MessageBox.Show("不能对同一路径进行重复监控");
-                                return;
+                    dataGridView1.ClearSelection();
+                    dataGridView1.Rows[e.RowIndex].Selected = true;
+                    dataGridView1.CurrentCell = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                    contextMenuStrip1.Show(MousePosition.X, MousePosition.Y);
+                }
+                else if (e.Button == MouseButtons.Left) {
+                    if (e.ColumnIndex != 0) {
+                        if (folderBrowserDialog1.ShowDialog() == DialogResult.OK) {
+                            if (e.ColumnIndex == 1) {
+                                var datas = (List<PathItem>)dataGridView1.DataSource;
+                                if (datas.Exists(t => datas.IndexOf(t) != e.RowIndex && t.OriginPath == folderBrowserDialog1.SelectedPath)) {
+                                    MessageBox.Show("不能对同一路径进行重复监控");
+                                    return;
+                                }
                             }
+                            dataGridView1[e.ColumnIndex, e.RowIndex].Value = folderBrowserDialog1.SelectedPath;
+                            MainProcess.Config.FilePaths = (List<PathItem>)dataGridView1.DataSource;
+                            RefreshGridView();
                         }
-                        dataGridView1[e.ColumnIndex, e.RowIndex].Value = folderBrowserDialog1.SelectedPath;
-                        MainProcess.Config.FilePaths = (List<PathItem>)dataGridView1.DataSource;
-                        RefreshGridView();
                     }
                 }
             }
+            catch (Exception ex) {
+                Console.WriteLine(System.Reflection.MethodBase.GetCurrentMethod().Name + "异常:" + ex.ToString());
+            }
+
         }
 
         private void RefreshGridView()
